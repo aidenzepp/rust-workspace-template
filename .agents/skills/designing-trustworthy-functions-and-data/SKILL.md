@@ -1,5 +1,5 @@
 ---
-name: designing-trustworthy-functions
+name: designing-trustworthy-functions-and-data
 description: Use when designing, implementing, refactoring, or reviewing functions, domain values, data structures, and APIs with hidden dependencies, discarded validation knowledge, invalid states, mixed abstraction levels, excessive mocking or traits, unclear effect boundaries, primitive-heavy signatures, or code that is difficult to test and understand locally.
 ---
 

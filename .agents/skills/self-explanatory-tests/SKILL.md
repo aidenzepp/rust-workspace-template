@@ -11,7 +11,7 @@ Tests are executable contracts for future maintainers and agents. A failure shou
 - Read [references/non-examples.md](references/non-examples.md) when reviewing tests, diagnosing brittle coverage, or considering a mock or lint exception.
 - Read [references/design-and-seams.md](references/design-and-seams.md) when tests expose a weak invariant, hidden dependency, awkward abstraction, or uncertain coverage boundary.
 - Read [references/sources.md](references/sources.md) when the policy or test strategy is disputed.
-- Use `designing-trustworthy-functions` before changing production types, dependencies, effects, or function boundaries in response to test pressure.
+- Use `designing-trustworthy-functions-and-data` before changing production types, dependencies, effects, or function boundaries in response to test pressure.
 
 ## Name the Contract First
 
@@ -65,7 +65,7 @@ When a test must repeatedly establish or check the same assumption:
 
 Repeated validation, elaborate fixtures, or inaccessible behavior are design evidence. Look for a missing constructor, parser, state machine, domain type, or dependency boundary before adding more test machinery. If redesign is outside the authorized scope, add the best regression test available and record the unenforced assumption as design debt; do not leave both the design and the behavior unprotected.
 
-Test pressure does not authorize a mechanically purer architecture. Preserve transactions, locks, ownership, ordering, cancellation, backpressure, and external-system semantics. Use `designing-trustworthy-functions` to select the production boundary, then use this skill to prove its contract.
+Test pressure does not authorize a mechanically purer architecture. Preserve transactions, locks, ownership, ordering, cancellation, backpressure, and external-system semantics. Use `designing-trustworthy-functions-and-data` to select the production boundary, then use this skill to prove its contract.
 
 ## Choose the Test Boundary
 

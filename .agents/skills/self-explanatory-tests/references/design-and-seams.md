@@ -2,7 +2,7 @@
 
 Use this reference when a test is difficult to write, an invariant is repeatedly checked, or a dependency seems to require a large abstraction.
 
-This reference translates design pressure into testing consequences. Use `designing-trustworthy-functions` to decide whether and how production types, dependencies, effects, or function boundaries should change. Test difficulty is evidence, not automatic authorization for a refactor.
+This reference translates design pressure into testing consequences. Use `designing-trustworthy-functions-and-data` to decide whether and how production types, dependencies, effects, or function boundaries should change. Test difficulty is evidence, not automatic authorization for a refactor.
 
 ## Build the Obligation Map
 

@@ -10,7 +10,7 @@ These sources explain the reasoning behind the workspace policy. Use them when a
 - `red-green`: prove RED fails for the intended reason, classify failures honestly, and never report unexecuted tests as successful.
 - `fool-proof-software`: remove hidden memory requirements from fixtures and make invalid setup fail at the earliest useful boundary.
 - `software-taste`: make invalid states difficult to represent, parse once at honest boundaries, inject dependencies without ceremony, and test observable contracts.
-- `designing-trustworthy-functions`: keep production contracts, dependencies, effects, invariants, and abstraction boundaries truthful while resisting mock-driven or type-driven over-design.
+- `designing-trustworthy-functions-and-data`: keep production contracts, dependencies, effects, invariants, and abstraction boundaries truthful while resisting mock-driven or type-driven over-design.
 
 The repo-owned skill adapts these principles to Rust and the template's lint policy; it does not import the source skills' broader workflows.
 
