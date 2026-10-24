@@ -1,4 +1,4 @@
 interface:
   display_name: "Conventional Commits"
-  short_description: "Create focused conventional commits"
-  default_prompt: "Use $conventional-commits to decide whether this work should be committed, then plan focused boundaries and commit authorized work at natural checkpoints."
+  short_description: "Create targeted commits with idiomatic conventional-commit prefixes"
+  default_prompt: "Use $conventional-commits when staging or committing. Inspect the diff, split changes into targeted DAG-story commits, choose idiomatic prefixes, verify each boundary, and keep demo or scratch work out unless explicitly requested."

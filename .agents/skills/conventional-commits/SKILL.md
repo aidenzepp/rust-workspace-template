@@ -1,6 +1,6 @@
 ---
 name: conventional-commits
-description: Use when deciding whether work should be committed, staging changes, or creating Git commits in a repository.
+description: Use when staging or committing changes in a git repo; split work into targeted commits with idiomatic conventional-commit prefixes and a clear DAG story.
 ---
 
 # Conventional Commits
@@ -9,14 +9,7 @@ Use this skill when preparing commits.
 
 The goal is a commit history that reads like a small design document. Each commit should be targeted, reviewable, and meaningful on its own. A commit does not need to be large; it needs to represent one coherent reason for change.
 
-## Decide Whether To Commit
-
-A natural checkpoint identifies a good time to commit; it does not grant permission to commit.
-
-- When the user asks for commits, or the repository workflow clearly calls for completed implementation work to be committed, commit coherent work at natural checkpoints.
-- Treat experiments, spikes, comparisons, testing grounds, and ongoing design work as uncommitted working states. Do not commit merely because one version works.
-- Unless commits are already authorized, ask whether the user wants exploratory work committed once it becomes a coherent candidate worth preserving.
-- If the request and repository instructions do not make the expectation clear, ask before the first commit. Once the user authorizes commits for the work, do not repeatedly ask at every checkpoint.
+Before preparing commits, read [references/examples.md](references/examples.md). Its labeled POSITIVE and NEGATIVE pairs define acceptance boundaries for prefixes, subjects, commit scope, staging, and useful bodies.
 
 ## Commit Prefixes
 
@@ -38,7 +31,7 @@ Prefer the most specific truthful prefix. Avoid vague subjects such as `update`,
 
 Optional scopes are fine when they clarify the boundary (`feat(api):`, `chore(lint):`). Do not invent noisy scopes.
 
-## Plan Commits Before Staging
+## Split Commits By Story
 
 Before staging, inspect the whole change:
 
@@ -48,33 +41,19 @@ git diff --stat
 git diff
 ```
 
-Write a short commit plan: one sentence for each independently understandable and reversible reason for change. A task, issue, conversation, or branch is not automatically one commit.
-
-During implementation, commit finished and verified slices at natural checkpoints when committing is appropriate. This prevents unrelated changes from accumulating into a single diff that must be untangled later.
-
-Split at story boundaries:
+Then split by story boundary:
 
 - separate unrelated concerns, even when they touched nearby files
 - separate tooling/config/dependency changes from product or library behavior
 - separate reusable API additions from their first usage when each is independently meaningful
-- separate changes that have different rollback or verification boundaries
 - keep tests with the behavior when the tests are the proof for that behavior
 - split reusable test infrastructure into its own `test:` commit when it supports later commits
-- keep documentation with the change it directly explains; split unrelated documentation cleanup
 - keep mechanical formatting separate only when it would obscure the semantic diff
 - exclude demos, scratch files, generated churn, and local experiments unless the user explicitly wants them kept
 
-A clean DAG is not the same as many tiny commits. Do not split a change into commits that only make sense after reading future commits unless you are intentionally telling a migration story.
+Each commit should represent one coherent change and leave the repository working. Keep everything required for that change together. Separate unrelated changes so each can be reverted independently. Dependencies between commits are acceptable; make them clear rather than splitting tightly coupled work into broken intermediate states.
 
-Do not justify a broad commit merely because all changes belong to the same request, touched the same files, or are easier to stage together.
-
-### Boundary Examples
-
-- A feature and the tests that prove it: one `feat:` commit.
-- A behavior-preserving refactor followed by a feature: a `refactor:` commit, then a `feat:` commit.
-- A lint configuration change and documentation that explains that exact policy: one `chore:` commit can be appropriate.
-- A lint configuration change plus unrelated README cleanup: separate `chore:` and `docs:` commits.
-- Several experimental configurations under discussion: no automatic commit; ask once the user selects a coherent candidate.
+Atomic means one complete change, not necessarily a small number of files.
 
 ## Stage Carefully
 
